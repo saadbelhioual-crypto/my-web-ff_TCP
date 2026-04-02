@@ -1,8 +1,7 @@
-// vercel.json
 {
   "builds": [
     {
-      "src": "next.config.js",
+      "src": "package.json",
       "use": "@vercel/next"
     },
     {
@@ -13,14 +12,11 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/index.py"
+      "dest": "api/index.py"
     },
     {
-      "src": "/(.*)",
+      "src: "/(.*)",
       "dest": "/$1"
     }
-  ],
-  "env": {
-    "PYTHONPATH": "."
-  }
+  ]
 }
