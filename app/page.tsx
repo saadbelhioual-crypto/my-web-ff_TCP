@@ -10,7 +10,6 @@ export default function Home() {
   const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Initialize audio element
     const audio = new Audio('/background-music.mp3');
     audio.loop = true;
     setAudioElement(audio);
@@ -25,7 +24,6 @@ export default function Home() {
 
   const handleLogin = () => {
     setIsAuthenticated(true);
-    // Play music after successful login
     if (audioElement) {
       audioElement.play().catch(e => console.log('Audio play failed:', e));
     }
@@ -41,13 +39,11 @@ export default function Home() {
 
   return (
     <main className="min-h-screen relative overflow-hidden bg-black">
-      {/* Animated Gradient Background */}
       <div className="fixed inset-0">
         <div className="absolute inset-0 rotating-conic opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 flex items-center justify-center min-h-screen p-4">
         <AnimatePresence mode="wait">
           {!isAuthenticated ? (
@@ -58,7 +54,6 @@ export default function Home() {
         </AnimatePresence>
       </div>
 
-      {/* Floating Particles Effect */}
       <div className="fixed inset-0 pointer-events-none">
         {[...Array(50)].map((_, i) => (
           <div
