@@ -7,13 +7,23 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   experimental: {
-    serverComponentsExternalPackages: ['axios'],
+    serverComponentsExternalPackages: ['axios', 'fs', 'path'],
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        fs: false,
+        path: false,
+        child_process: false,
+      };
+    }
+    return config;
   },
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: 'http://localhost:5000/api/:path*',
+        source: '/api/bot',
+        destination: '/api/bot',
       },
     ];
   },
