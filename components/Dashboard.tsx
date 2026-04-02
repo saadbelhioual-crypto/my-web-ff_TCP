@@ -65,7 +65,6 @@ export default function Dashboard({ onLogout }: DashboardProps) {
         addLog('🎮 Starting Free Fire Bot Engine...', 'info');
         addLog('🔄 Connecting to game servers...', 'info');
         
-        // Simulate bot process with real-time logs
         setTimeout(() => addLog('⚙️ Initializing protocol buffers...', 'info'), 1000);
         setTimeout(() => addLog('🌐 Establishing secure connection...', 'info'), 2000);
         setTimeout(() => addLog('🎯 Bot is now active and farming!', 'success'), 3000);
@@ -99,7 +98,6 @@ export default function Dashboard({ onLogout }: DashboardProps) {
       className="w-full max-w-6xl mx-auto px-4"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Control Panel */}
         <div className="relative p-[2px] rounded-2xl overflow-hidden">
           <div className="absolute inset-0 rotating-conic rounded-2xl" />
           <div className="relative bg-black/90 backdrop-blur-xl rounded-2xl p-6">
@@ -178,7 +176,6 @@ export default function Dashboard({ onLogout }: DashboardProps) {
           </div>
         </div>
 
-        {/* Terminal Console */}
         <AnimatePresence>
           {showConsole && (
             <TerminalConsole logs={logs} onClose={() => setShowConsole(false)} />
@@ -186,7 +183,6 @@ export default function Dashboard({ onLogout }: DashboardProps) {
         </AnimatePresence>
       </div>
 
-      {/* Background Music */}
       <audio
         id="bg-music"
         loop
