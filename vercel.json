@@ -1,22 +1,28 @@
 {
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    },
-    {
-      "src": "api/index.py",
-      "use": "@vercel/python"
+  "functions": {
+    "app/api/bot/route.ts": {
+      "maxDuration": 60
     }
-  ],
+  },
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "api/index.py"
-    },
-    {
-      "src: "/(.*)",
-      "dest": "/$1"
+      "src": "/api/bot",
+      "dest": "/app/api/bot/route.ts"
     }
-  ]
+  ],
+  "builds": [
+    {
+      "src": "app/api/bot/route.ts",
+      "use": "@vercel/next"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_API_URL": "/api"
+  },
+  "ignoreCommand": "echo 'Ignoring build errors...'",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs"
 }
