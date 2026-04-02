@@ -10,12 +10,6 @@
       "dest": "/app/api/bot/route.ts"
     }
   ],
-  "builds": [
-    {
-      "src": "app/api/bot/route.ts",
-      "use": "@vercel/next"
-    }
-  ],
   "env": {
     "NEXT_PUBLIC_API_URL": "/api"
   },
