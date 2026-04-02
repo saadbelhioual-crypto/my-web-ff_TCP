@@ -1,9 +1,10 @@
 {
-  "functions": {
-    "app/api/bot/route.ts": {
-      "maxDuration": 60
+  "builds": [
+    {
+      "src": "app/api/bot/route.ts",
+      "use": "@vercel/next"
     }
-  },
+  ],
   "routes": [
     {
       "src": "/api/bot",
